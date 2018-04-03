@@ -39,7 +39,7 @@
     testrpc
     ```
   </li>
-<ul>
+</ul>
 
 #### Install MetaMask chrome plugin
 
@@ -51,4 +51,4 @@
     npm run dev
   ```
   </li>
-<ul>
+</ul>
