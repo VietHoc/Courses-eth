@@ -34,10 +34,8 @@
 #### Start server EVM
 <ul>
   <li>
-    ```sh
-    npm install -g ethereumjs-testrpc
-    testrpc
-    ```
+    `npm install -g ethereumjs-testrpc`
+    `testrpc`
   </li>
 </ul>
 
@@ -46,9 +44,7 @@
 #### lite-server 
 <ul>
   <li>
-  ```sh
-    npm install lite-server --save-dev
-    npm run dev
-  ```
+  `npm install lite-server --save-dev`
+  `npm run dev`
   </li>
 </ul>
