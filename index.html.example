@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Coursetro Instructor</h1>
+
+        <h2 id="instructor"></h2>
+
+        <label for="name" class="col-lg-2 control-label">Instructor Name</label>
+        <input id="name" type="text">
+
+        <label for="name" class="col-lg-2 control-label">Instructor Age</label>
+        <input id="age" type="text">
+
+        <button id="button">Update Instructor</button>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var CoursetroContract = web3.eth.contract([{
+            "constant": false,
+            "inputs": [{
+                "name": "_fName",
+                "type": "string"
+            }, {
+                "name": "_age",
+                "type": "uint256"
+            }],
+            "name": "setInstructor",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "constant": true,
+            "inputs": [],
+            "name": "getInstructor",
+            "outputs": [{
+                "name": "",
+                "type": "string"
+            }, {
+                "name": "",
+                "type": "uint256"
+            }],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }]);
+
+        var Coursetro = CoursetroContract.at('0x0bd5bc9a72172056e5bfe276491676401ee8da40');
+        // console.log(Coursetro);
+        // var coursetro = coursetroContract.new(
+        //    {
+        //      from: web3.eth.accounts[0], 
+        //      data: '0x6060604052341561000f57600080fd5b6103058061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806322faf03a146100515780633c1b81a5146100b7575b600080fd5b341561005c57600080fd5b6100b5600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001909190505061014c565b005b34156100c257600080fd5b6100ca61016e565b6040518080602001838152602001828103825284818151815260200191508051906020019080838360005b838110156101105780820151818401526020810190506100f5565b50505050905090810190601f16801561013d5780820380516001836020036101000a031916815260200191505b50935050505060405180910390f35b8160009080519060200190610162929190610220565b50806001819055505050565b6101766102a0565b600080600154818054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102115780601f106101e657610100808354040283529160200191610211565b820191906000526020600020905b8154815290600101906020018083116101f457829003601f168201915b50505050509150915091509091565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061026157805160ff191683800117855561028f565b8280016001018555821561028f579182015b8281111561028e578251825591602001919060010190610273565b5b50905061029c91906102b4565b5090565b602060405190810160405280600081525090565b6102d691905b808211156102d25760008160009055506001016102ba565b5090565b905600a165627a7a72305820e66737dd03d43705325019517a01de6f4a5784aaba76ef7989b56fa5728ff6960029', 
+        //      gas: '4700000'
+        //    }, function (e, contract){
+        //     console.log(e, contract);
+        //     if (typeof contract.address !== 'undefined') {
+        //          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
+        //     }
+        //  })
+        Coursetro.getInstructor(function (error, result) {
+            if (!error) {
+                $("#instructor").html(result[0] + ' (' + result[1] + ' years old)');
+                console.log(result);
+            } else
+                console.error(error);
+        });
+
+        $("#button").click(function () {
+            Coursetro.setInstructor($("#name").val(), $("#age").val());
+        });
+    </script>
+
+</body>
+
+</html>
