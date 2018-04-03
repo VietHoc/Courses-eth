@@ -33,15 +33,22 @@
 ### How to run this project?
 #### Start server EVM
 <ul>
-  `npm install -g ethereumjs-testrpc
-  testrpc`
+  <li>
+    ```sh
+    npm install -g ethereumjs-testrpc
+    testrpc
+    ```
+  </li>
 <ul>
 
 #### Install MetaMask chrome plugin
 
 #### lite-server 
 <ul>
-  ` npm install lite-server --save-dev
+  <li>
+  ```sh
+    npm install lite-server --save-dev
     npm run dev
-  `
+  ```
+  </li>
 <ul>
