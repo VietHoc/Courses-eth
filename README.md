@@ -1,5 +1,5 @@
 # Courses-eth
-# This project was build from course: https://coursetro.com/courses/20/Developing-Ethereum-Smart-Contracts-for-Beginners/lessons/8
+#### This project was build from course: https://coursetro.com/courses/20/Developing-Ethereum-Smart-Contracts-for-Beginners/lessons/8
 
 ## Coursetro-eth is a project about Etherium, smart contract.
 
@@ -22,7 +22,7 @@
             https://ethereum.org</li>
 </ul>
 
-### Coding
+### Coding...
 <ul>
   <li>Tìm hiểu về thư viện web3, ứng dụng của web3.</li>
   <li>Tìm hiểu về mist, geth sau đó setup mạng riêng để deploy và test contract.</li>
