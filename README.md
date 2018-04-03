@@ -29,3 +29,19 @@
   <li>Tạo 1 trang web demo sử dụng web3 tương tác với smart contract.</li>
   <li>Sau đó sử dụng mạng testnet để test contract, biết cách dùng etherscan để theo dõi transaction, thông tin của contract, phân biệt sự khác nhau khi dùng mạng riêng và testnet.</li>
 </ul>
+
+### How to run this project?
+#### Start server EVM
+<ul>
+  `npm install -g ethereumjs-testrpc
+  testrpc`
+<ul>
+
+#### Install MetaMask chrome plugin
+
+#### lite-server 
+<ul>
+  ` npm install lite-server --save-dev
+    npm run dev
+  `
+<ul>
